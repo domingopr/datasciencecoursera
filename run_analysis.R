@@ -154,7 +154,7 @@ rm("train") ## remove the originaldataframe from your workspace with rm().
                       
                       
 ## copy data with the labels with descriptive variable names
-                descripData<-restData ## create a new dataframe
+                descripData<-restData ## create a new dataframe.
                 rm(restData)  ## remove dataframe from your workspace with rm().
                 names(descripData)<-y   ##copy data with the labels with descriptive variable names                   
 
