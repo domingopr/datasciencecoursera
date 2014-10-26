@@ -6,8 +6,8 @@ library(tidyr)
 ## Dowloads the training and the test sets data from the project using this url https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 ## and unzip it and copy the following files in your default R working directory.
 
-## 'train/X_train.txt': Training set. = I use it to  create a datatable with the name xtrain
-## 'train/y_train.txt': Training labels.= I use it to  create a datatable with the nameytrain
+## 'train/X_train.txt': Training set. = I use it to  create a datatable with the name xtrain.
+## 'train/y_train.txt': Training labels.= I use it to  create a datatable with the nameytrain.
 ## 'test/X_test.txt': Test set. =I use it to  create a datatable with the namextest
 ## 'test/y_test.txt': Test labels.=I use it to  create a datatable with the nameytest
 ## 'features.txt': List of all features.= I use it to  create a datatable with the name feature
