@@ -3,8 +3,8 @@ library(dplyr)
 ## Attaching package: 'tidyr'
 library(tidyr)
 
-## Dowload the the training and the test sets data form the project using this url https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
-## and unziip it and copy the following files in your default R working directory.
+## Dowloads the training and the test sets data from the project using this url https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+## and unzip it and copy the following files in your default R working directory.
 
 ## 'train/X_train.txt': Training set. = I use it to  create a datatable with the name xtrain
 ## 'train/y_train.txt': Training labels.= I use it to  create a datatable with the nameytrain
@@ -15,7 +15,7 @@ library(tidyr)
 ## 'test/subject_train.txt' = I use it to  create a datatable with the name stest
 ## 'activity_labels.txt': = I use it to  create a datatable with the name activity_labels
 
-## Now we will going to read.txt fields alredy dowloading and unziping and moving to the working directory
+## Now we will going to read.txt fields already downloading and unzipping and moving to the working directory
 ## Create data for the project 
 ## Load the data and create the working files
 
@@ -39,12 +39,12 @@ library(tidyr)
 
 
                       
-## add aditional column  subject and Actibity  to  the training and the test sets to create one data set using cbind.                     
+## Add additional column  subject and Activity  to  the training and the test sets to create one data set using cbind.                                         
                       test<- cbind(xtest,stest,ytest)
                       
                       train<- cbind(xtrain,strain,ytrain)
 
-## remove the originaldataframe from your workspace with rm().
+## remove the original data frame from your workspace with rm().
 
 
         rm("xtest")
@@ -74,7 +74,7 @@ rm("train") ## remove the originaldataframe from your workspace with rm().
 ## Links the class labels with their activity name.
         names(mergedata)<-feature[[2]]
 ## change the last two column names , was change by  name to "na" , feauture have only
-## 561 columns names. mergedata have 563 columns. 
+## 561 columns names and my merge data have 563 columns. 
 ## next time I have to use rbind  to add to feature two rows .
                       ##V1                V2
                       ## 1  1 tBodyAcc-mean()-X
@@ -84,9 +84,7 @@ rm("train") ## remove the originaldataframe from your workspace with rm().
         
                       colnames(mergedata)[c(562,563)] <- c("Subject","Activity")
 
-## Step 2. TO create a dataset with only variables that include the measurements mean or standard deviation.
-## meanFreq is not included. 
-## This will create  66 measurements + subject id + activity I'd . 
+
 
                         colNames <-names(mergedata)
 
@@ -103,9 +101,9 @@ rm("train") ## remove the originaldataframe from your workspace with rm().
                 dataset <- mergedata[ ,colNames] ## This is a table with 68 variables and  10299 observations
                 rm(mergedata)  ## remove the originaldataframe from your workspace with rm().
 
-## load as data frame tbl to take advatage of the print 
+## load as data frame tbl to take advantage of the print 
         restData <- tbl_df(dataset) ## This is a table with 68 variables and  10299 observations
-        rm(dataset)  ## remove the dataframe from your workspace with rm().
+        rm(dataset)  ## remove the data frame from your workspace with rm().
 ## Step 3. Uses descriptive activity names to name the activities in the data set 
 #  variable y is coded 1, 2 ,3,4,5, 6  
 #  we want to attach value labels  WALKING,WALKING_UPSTAIRS,WALKING_DOWNSTAIRS,SITTING,STANDING,LAYING 
@@ -116,8 +114,8 @@ rm("train") ## remove the originaldataframe from your workspace with rm().
                        
 ## Step 4 .Appropriately labels the data set with descriptive variable names
 ## To expand all abbreviations using regular expressions to manipulate column names.
-## I analize the name in the features files in excel  and create a table call "descriptive.csv"
-## with the change I want to aplicate to the columns using gsub, v1 is the string to look for 
+## I analyze the name in the features files in excel  and create a table call "descriptive.csv"
+## I  modify  the columns using gsub, v1 is the string to look for 
 ## and v2 is the new string to be updated . Than using a loop I change the columns names.
 ## I load Using ""descriptive = read.csv("./data/UCIHARDataset/descriptive.csv")"
                       
@@ -170,7 +168,7 @@ rm("train") ## remove the originaldataframe from your workspace with rm().
                         # 2) Each observation forms a row
                         # 3) Each type of observational unit forms a table
  
-## First I goind to use group_by() and summarise_each() to calculate the average 
+## First I goin to use group_by() and summarise_each() to calculate the average 
 ## of each variable for each activity and each subject.
 ## Second to convert to tidy data I  use gather() to  takes multiple columns and collapses into key-value pairs,
 ## duplicating all other columns as needed.
