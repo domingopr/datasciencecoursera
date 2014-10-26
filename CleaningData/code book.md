@@ -1,7 +1,5 @@
 Description the raw data and the transformations that I use to get the final data.
 
-
-
 I download the training and the test sets data from the project using this url https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR
 And unzip. 
 
